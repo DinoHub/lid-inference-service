@@ -1,0 +1,4 @@
+# Put any extra dependencies here
+# gradio==2.9.4
+gradio
+speechbrain
