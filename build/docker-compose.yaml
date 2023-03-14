@@ -1,0 +1,25 @@
+version: '1.0.0'
+
+services:
+  lid:
+    build: ../
+    stdin_open: true
+    tty: true
+    ulimits:
+      memlock: -1 # set upper limit for how much memory is locked for the container (-1 means lock as much as the container uses)
+    shm_size: 32gb
+    ports:
+      - ${FASTAPI_HOST_PORT}:${FASTAPI_CONTAINER_PORT} # FastAPI Ports
+      - ${NOTEBOOK_HOST_PORT}:${NOTEBOOK_CONTAINER_PORT} # Jupyter Notebook Ports
+    deploy:
+          resources:
+            reservations:
+              devices:
+                - driver: nvidia
+                  count: 1
+                  capabilities: [gpu]
+    volumes:
+      - ../data:/data
+      - ../models:/models
+      - ../src:/src
+    # command: uvicorn main:api --reload --host 0.0.0.0 # Command for FastAPI
