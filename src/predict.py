@@ -25,12 +25,14 @@ MAP_LOCATION: str = torch.device('cuda:{}'.format(DEVICE[0]) if ACCELERATOR == '
 ''' Helper functions '''
 def initialize_lid_model(cfg: BaseConfig) -> EncoderClassifier:
 
-    lid_model = EncoderClassifier.from_hparams(source=cfg.model_source, savedir=cfg.model_dir)
+    # lid_model = EncoderClassifier.from_hparams(source=cfg.model_source, savedir=cfg.model_dir)
+    lid_model = EncoderClassifier.from_hparams(source=cfg.model_source, savedir=cfg.model_source)
 
     return lid_model
 
 ''' Initialize models '''
 lid_model = initialize_lid_model(config)
+
 
 ''' Main prediction function '''
 def predict(audio_path: str) -> str:

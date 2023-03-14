@@ -8,8 +8,8 @@ class BaseConfig(BaseSettings):
     https://pydantic-docs.helpmanual.io/usage/settings/
     """
     # KNative assigns a $PORT environment variable to the container
-    port: int = Field(default=8085, env="PORT",description="Gradio App Server Port")
-    model_source: str = "speechbrain/lang-id-voxlingua107-ecapa"
-    model_dir: str = "./models"
+    # port: int = Field(default=8085, env="PORT",description="Gradio App Server Port")
+    model_source: str = "../models/"
+    # model_dir: str = "./models"
 
 config = BaseConfig()

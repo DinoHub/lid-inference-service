@@ -18,7 +18,7 @@ RUN pip install --no-cache-dir torchaudio --extra-index-url https://download.pyt
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 COPY . .
-ENV TRANSFORMERS_CACHE="/workspace/models/transformers_cache"
+ENV TRANSFORMERS_CACHE="/models/transformers_cache"
 
-WORKDIR "/workspace"
-CMD ["python", "src/app.py"]
+WORKDIR "/src"
+CMD ["python", "app.py"]
