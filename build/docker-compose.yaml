@@ -11,6 +11,7 @@ services:
     ports:
       - ${FASTAPI_HOST_PORT}:${FASTAPI_CONTAINER_PORT} # FastAPI Ports
       - ${NOTEBOOK_HOST_PORT}:${NOTEBOOK_CONTAINER_PORT} # Jupyter Notebook Ports
+      - 7861:7861
     deploy:
           resources:
             reservations:
